@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'open-uri'
+
+Picture.destroy_all
+
+################
+### PICTURES ###
+################
+
+picture1 = Picture.create!(title: "First picture")
+photo1 = open("https://bubble-test-seeds.s3.amazonaws.com/bubble-test-photo.jpg")
+picture1.photo.attach(io: photo1, filename: 'bubble-test-photo.jpg')

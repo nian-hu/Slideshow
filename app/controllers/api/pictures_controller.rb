@@ -1,7 +1,7 @@
 class Api::PicturesController < ApplicationController
   def index
-    # Avoid N+1 queries by using "with_attached_photos"
-    @pictures = Picture.with_attached_photos.all 
+    # Avoid N+1 queries by using "with_attached_photo"
+    @pictures = Picture.with_attached_photo.all 
     if @pictures
       render :index
     else
