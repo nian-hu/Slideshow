@@ -1,0 +1,17 @@
+class Api::PicturesController < ApplicationController
+  def index
+    # Avoid N+1 queries by using "with_attached_photos"
+    @pictures = Picture.with_attached_photos.all 
+    if @pictures
+      render :index
+    else
+      render json: ['Pictures not found'], status: 422
+    end
+  end
+
+  private
+  def picture_params
+    params.require(:picture).permit(:title, :photo)
+  end
+
+end

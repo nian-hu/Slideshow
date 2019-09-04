@@ -9,5 +9,6 @@
 #
 
 class Picture < ApplicationRecord
+  # Add Active Storage attachment association
   has_one_attached :photo
 end

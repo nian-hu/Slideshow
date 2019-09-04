@@ -1,12 +1,12 @@
 import React from 'react'
-import Slideshow from '../components/slideshow/slideshow';
+import PicturesIndexContainer from '../components/pictures/pictures_index_container';
 import Upload from '../components/upload/upload';
 import { Route } from 'react-router-dom';
 
 const App = () => {
   return (
     <div>
-      <Route exact path='/' component={Slideshow} />
+      <Route exact path='/' component={PicturesIndexContainer} />
       <Route exact path='/upload' component={Upload} />
     </div>
   )
