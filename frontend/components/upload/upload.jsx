@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Upload extends React.Component {
   constructor(props) {
@@ -33,7 +34,9 @@ class Upload extends React.Component {
       data: formData,
       contentType: false,
       processData: false
-    })
+    }).then(
+      this.props.history.push('/')
+    )
   }
 
   render() {
@@ -59,4 +62,4 @@ class Upload extends React.Component {
   }
 }
 
-export default Upload;
+export default withRouter(Upload);
