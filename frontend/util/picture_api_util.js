@@ -8,10 +8,12 @@ export const fetchPictures = () => {
   })
 }
 
-export const createPicture = (picture) => {
+export const createPicture = (formData) => {
   return $.ajax({
     method: 'POST',
     url: 'api/pictures',
-    picture
+    data: formData,
+    contentType: false,
+    processData: false
   })
 }

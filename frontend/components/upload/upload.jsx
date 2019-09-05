@@ -1,5 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPicture } from '../../actions/picture_actions';
+
+const mdp = dispatch => {
+  return {
+    createPicture: (picture) => dispatch(createPicture(picture))
+  }
+}
 
 class Upload extends React.Component {
   constructor(props) {
@@ -39,15 +47,7 @@ class Upload extends React.Component {
     formData.append('picture[photo]', this.state.photoFile);
     // Send an AJAX request that hits the create action of 
     // the pictures controller
-    $.ajax({
-      method: 'POST',
-      url: 'api/pictures',
-      data: formData,
-      contentType: false,
-      processData: false
-    }).then(
-      // If the uploaded photo saves to the backend, then 
-      // redirect the user to the slideshow page
+    this.props.createPicture(formData).then(() =>
       this.props.history.push('/')
     )
   }
@@ -79,4 +79,4 @@ class Upload extends React.Component {
   }
 }
 
-export default withRouter(Upload);
+export default withRouter(connect(null, mdp)(Upload));
