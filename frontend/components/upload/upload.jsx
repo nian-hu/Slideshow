@@ -7,6 +7,7 @@ class Upload extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       title: "",
       photoFile: null
@@ -39,12 +40,15 @@ class Upload extends React.Component {
     )
   }
 
+  handleClick() {
+    this.props.history.push('/')
+  }
+
   render() {
     return (
-      <div>
-        <h1>Upload any image you want!</h1>
+      <div className='upload-form'>
+        <h1>Upload your image here</h1>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="image-title">Title</label>
           <input 
             type="text"
             value={this.state.title}
@@ -56,7 +60,7 @@ class Upload extends React.Component {
           />
           <input type="submit" value="Upload Image"/>
         </form>
-        <button>Back to slideshow</button>
+        <button onClick={this.handleClick}>Back to slideshow</button>
       </div>
     )
   }

@@ -67,7 +67,7 @@ class PictureIndex extends React.Component {
 
     return (
       <div>
-        <button onClick={this.handleClick}>Upload Photo</button>
+        <button className='upload-button' onClick={this.handleClick}>Upload Photo</button>
         <img src={picture.photoUrl} />
       </div>
     )
