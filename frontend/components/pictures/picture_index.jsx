@@ -1,5 +1,6 @@
 import React from 'react';
 import PictureIndexItem from './picture_index_item';
+import { withRouter } from 'react-router-dom';
 
 class PictureIndex extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class PictureIndex extends React.Component {
     this.state = {
       currentPicture: 0
     }
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +46,10 @@ class PictureIndex extends React.Component {
     }
   }
 
+  handleClick() {
+    this.props.history.push('/upload')
+  }
+
   render() {
     const { pictures } = this.props;
     const { currentPicture } = this.state;
@@ -61,6 +67,7 @@ class PictureIndex extends React.Component {
 
     return (
       <div>
+        <button onClick={this.handleClick}>Upload Photo</button>
         <img src={picture.photoUrl} />
       </div>
     )
@@ -86,4 +93,4 @@ class PictureIndex extends React.Component {
   }
 }
 
-export default PictureIndex;
+export default withRouter(PictureIndex);
