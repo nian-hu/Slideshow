@@ -16,5 +16,8 @@ Picture.destroy_all
 
 picture1 = Picture.create!(title: "First picture")
 photo1 = open('https://bubble-test-seeds.s3.amazonaws.com/bubble-test-photo.jpg')
-# photo1 = File.open("app/assets/images/demo.jpg")
 picture1.photo.attach(io: photo1, filename: 'bubble-test-photo.jpg')
+
+picture2 = Picture.create!(title: "Second picture")
+photo2 = open('https://bubble-test-seeds.s3.amazonaws.com/bubble-test-photo-2.jpg')
+picture2.photo.attach(io: photo2, filename: 'bubble-test-photo-2.jpg')
