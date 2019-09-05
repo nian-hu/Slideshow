@@ -1,0 +1,15 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  // overflow: hidden;
+  position: relative;
+  // for reactdates initialize to work?
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
