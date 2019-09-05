@@ -47,7 +47,7 @@ class Upload extends React.Component {
   render() {
     return (
       <div className='upload-form'>
-        <h1>Upload your image here</h1>
+        <h1>Upload your image</h1>
         <form onSubmit={this.handleSubmit}>
           <input 
             type="text"
