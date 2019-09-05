@@ -5,10 +5,9 @@ import React from 'react';
 
 const PictureIndexItem = ({picture}) => {
   return (
-    <div>
-      <h1>{picture.title}</h1>
+    <div className='picture-index-item'>
       <img src={picture.photoUrl}/>
-      {/* <img src="https://bubble-test-seeds.s3.amazonaws.com/bubble-test-photo.jpg" /> */}
+      <h1>{picture.title}</h1>
     </div>
   )
 }
