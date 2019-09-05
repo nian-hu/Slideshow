@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Deconstruct picture from inline props
-// and display title and attached photo
+// in order to display title and attached photo
 
 const PictureIndexItem = ({picture}) => {
   return (

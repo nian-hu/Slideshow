@@ -2,9 +2,39 @@ import React from 'react';
 import PictureIndexItem from './picture_index_item';
 
 class PictureIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPicture: 0
+    }
+  }
+
   componentDidMount() {
     // Fetch pictures from database when component first mounts
     this.props.fetchPictures();
+    // Set the 5-second interval as soon as the component mounts
+    this.interval = setInterval(() => this.changeImage(), 5000)
+  }
+
+  // Clear the interval when component unmounts
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval)
+    }
+  }
+
+  // Set the state to the next picture, causing render method to re-render
+  changeImage() {
+    const { pictures } = this.props;
+    const { currentPicture } = this.state;
+    const numPictures = pictures.length;
+    let nextPicture = 0;
+
+    if (currentPicture !== numPictures - 1) {
+      nextPicture = currentPicture + 1;
+    }
+
+    this.setState({currentPicture: nextPicture})
   }
 
   componentDidUpdate(prevProps) {
@@ -16,31 +46,43 @@ class PictureIndex extends React.Component {
 
   render() {
     const { pictures } = this.props;
-    // On the first render, pictures will be undefined
+    const { currentPicture } = this.state;
+    // On the first render, pictures will be empty
     // They must be fetched when the component mounts
     // On the second render, the pictures will be available
     if (!pictures) {
       return <div>Loading...</div>
     }
-    
-    const pictureItems = pictures.map((picture, idx) => {
-      return (
-        // Use a unique key for every list element so React DOM 
-        // can recognize that they are different 
-        <div key={idx}>
-          <PictureIndexItem picture={picture} />
-        </div>
-        // Send picture to child component as inline prop
-      )
-    })
+
+    const picture = pictures[currentPicture]
+    if (!picture) {
+      return <div>Loading...</div>
+    }
 
     return (
       <div>
-        <ul>
-          {pictureItems}
-        </ul>
+        <img src={picture.photoUrl} />
       </div>
     )
+    
+    // const pictureItems = pictures.map((picture, idx) => {
+    //   return (
+    //     // Use a unique key for every list element so React DOM 
+    //     // can recognize that they are different 
+    //     <div key={idx}>
+    //       <PictureIndexItem picture={picture} />
+    //     </div>
+    //     // Send picture to child component as inline prop
+    //   )
+    // })
+
+    // return (
+    //   <div>
+    //     <ul>
+    //       {pictureItems}
+    //     </ul>
+    //   </div>
+    // )
   }
 }
 
