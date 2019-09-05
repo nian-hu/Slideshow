@@ -72,6 +72,11 @@ class PictureIndex extends React.Component {
       </div>
     )
     
+    // UPDATE: No longer ended up needing this section of code
+    // after I added image change functionality on index page.
+    // This had previously rendered a list of all uploaded pictures
+    // on the same page.
+
     // const pictureItems = pictures.map((picture, idx) => {
     //   return (
     //     // Use a unique key for every list element so React DOM 

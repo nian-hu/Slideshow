@@ -1,5 +1,8 @@
 import React from 'react';
 
+// UPDATE: No longer ended up using this child component
+// after adding image change functionality on index page
+
 // Deconstruct picture from inline props
 // in order to display title and attached photo
 
