@@ -4,7 +4,9 @@ class Upload extends React.Component {
   render() {
     return (
       <div>
-        <h1>Upload Image:</h1>
+        <h1>Upload any image you want!</h1>
+        <button>Upload</button>
+        <button>Back to slideshow</button>
       </div>
     )
   }
