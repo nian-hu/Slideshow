@@ -6,7 +6,7 @@ import { fetchPictures } from '../../actions/picture_actions';
 // in the form of props 
 
 const msp = state => {
-  // The const here refers to an array full of objects,
+  // Pictures here refers to an array full of objects,
   // each of which contains information about a picture
   const pictures = Object.values(state.entities.pictures)
   return {
