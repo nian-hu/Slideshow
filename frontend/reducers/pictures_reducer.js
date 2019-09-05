@@ -9,11 +9,9 @@ const picturesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_PICTURES: {
-      debugger
       return merge({}, action.pictures)
     }
     case RECEIVE_PICTURE: {
-      debugger
       const newState = merge({}, state);
       newState[action.picture.id] = action.picture;
     }

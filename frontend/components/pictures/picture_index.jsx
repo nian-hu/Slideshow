@@ -15,7 +15,6 @@ class PictureIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     // Fetch pictures from database when component first mounts
     this.props.fetchPictures();
 
@@ -50,20 +49,11 @@ class PictureIndex extends React.Component {
     this.setState({currentPicture: nextPicture})
   }
 
-  componentDidUpdate(prevProps) {
-    // Fetch pictures again on a hard refresh
-    debugger
-    if (prevProps.match.params.listingId !== this.props.match.params.listingId) {
-      this.props.fetchPictures();
-    }
-  }
-
   handleClick() {
     this.props.history.push('/upload')
   }
 
   render() {
-    debugger
     const { pictures } = this.props;
     const { currentPicture } = this.state;
     // On the first render, pictures will be empty
