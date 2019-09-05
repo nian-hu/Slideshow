@@ -51,12 +51,12 @@ class PictureIndex extends React.Component {
     // They must be fetched when the component mounts
     // On the second render, the pictures will be available
     if (!pictures) {
-      return <div>Loading...</div>
+      return <div className="loader">Loading...</div>
     }
 
     const picture = pictures[currentPicture]
     if (!picture) {
-      return <div>Loading...</div>
+      return <div className="loader">Loading...</div>
     }
 
     return (
