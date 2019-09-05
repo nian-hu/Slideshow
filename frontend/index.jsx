@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore();
 
   // TESTING START
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
   // TESTING END
 
   const root = document.getElementById("root");
